@@ -1,0 +1,36 @@
+# Maven build target directory
+target/
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Crash logs
+crashdump.log
+hs_err_pid*
+replay_pid*
+
+# IDE and Editor files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
+.nb-gradle/
+nb-configuration.xml
+
+# OS generated files
+.DS_Store
+Thumbs.db

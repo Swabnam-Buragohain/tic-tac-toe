@@ -9,5 +9,4 @@ public class SystemInfo {
     public static String javafxVersion() {
         return System.getProperty("javafx.version");
     }
-
 }
