@@ -66,7 +66,7 @@ mvn -version
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/tic-tac-toe.git
+git clone https://github.com/gulagi-117/better-tic-tac-toe.git
 cd tic-tac-toe
 ```
 
