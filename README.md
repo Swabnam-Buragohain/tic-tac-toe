@@ -1,4 +1,4 @@
-# ⚡ NEO TIC-TAC-TOE // Quantum Cyber Arena
+# ⚡ NEO TIC-TAC-TOE // Cyber Arena
 
 [![Java Version](https://img.shields.io/badge/Java-21%20LTS-orange.svg?style=flat-square&logo=openjdk)](https://openjdk.org/)
 [![JavaFX](https://img.shields.io/badge/JavaFX-13%2B-blue.svg?style=flat-square&logo=oracle)](https://openjfx.io/)
@@ -114,7 +114,7 @@ tic-tac-toe/
     └── main/
         └── java/
             ├── module-info.java                 # Java module descriptor
-            └── com/pqca/user/tic/tac/toe/
+            └── com/tictactoe/
                 ├── App.java                     # Main UI, Cyber HUD, and game state controller
                 ├── CpuPlayer.java               # AI decision algorithms (Random, Heuristic, Minimax)
                 ├── SoundEngine.java             # Procedural real-time audio synthesizer
@@ -134,3 +134,4 @@ tic-tac-toe/
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
+

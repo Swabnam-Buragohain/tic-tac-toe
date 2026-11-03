@@ -1,4 +1,4 @@
-package com.pqca.user.tic.tac.toe;
+package com.tictactoe;
 
 public class SystemInfo {
 

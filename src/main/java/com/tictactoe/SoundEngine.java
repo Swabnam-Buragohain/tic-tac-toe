@@ -1,4 +1,4 @@
-package com.pqca.user.tic.tac.toe;
+package com.tictactoe;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;

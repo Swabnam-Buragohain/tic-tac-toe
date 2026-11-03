@@ -1,4 +1,4 @@
-package com.pqca.user.tic.tac.toe;
+package com.tictactoe;
 
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
@@ -242,7 +242,7 @@ public class App extends Application {
 
         Scene scene = new Scene(root, 1280, 800);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("NEO TIC-TAC-TOE // Quantum Cyber Arena");
+        primaryStage.setTitle("NEO TIC-TAC-TOE // Cyber Arena");
         primaryStage.setFullScreenExitKeyCombination(KeyCombination.valueOf("ESCAPE"));
         primaryStage.setFullScreenExitHint("ESC or Fullscreen Button to Toggle");
         primaryStage.setFullScreen(true);
@@ -798,7 +798,7 @@ public class App extends Application {
         } else if (winner == 'O') {
             scoreO++;
             highlightWinningLine(winLine);
-            String name = (currentMode == GameMode.PV_CPU) ? "CPU QUANTUM AI" : "PLAYER O";
+            String name = (currentMode == GameMode.PV_CPU) ? "CPU AI" : "PLAYER O";
             statusBadge.setText("VICTORY: " + name + " 🤖");
             statusBadge.setEffect(new DropShadow(24, Color.web("#00e5ff")));
             SoundEngine.playWin();

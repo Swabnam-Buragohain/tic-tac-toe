@@ -1,6 +1,6 @@
-module com.pqca.user.tic.tac.toe {
+module com.tictactoe {
     requires javafx.controls;
     requires java.desktop;
 
-    exports com.pqca.user.tic.tac.toe;
+    exports com.tictactoe;
 }

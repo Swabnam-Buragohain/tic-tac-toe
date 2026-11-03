@@ -1,4 +1,4 @@
-package com.pqca.user.tic.tac.toe;
+package com.tictactoe;
 
 import java.util.ArrayList;
 import java.util.List;
