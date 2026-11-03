@@ -67,7 +67,7 @@ mvn -version
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/gulagi-117/better-tic-tac-toe.git
-cd tic-tac-toe
+cd better-tic-tac-toe
 ```
 
 ### 2. Build the Project
