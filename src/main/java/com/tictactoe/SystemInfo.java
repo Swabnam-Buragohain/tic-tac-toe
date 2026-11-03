@@ -1,4 +1,4 @@
-package com.pqca.user.tic.tac.toe;
+package com.tictactoe;
 
 public class SystemInfo {
 
@@ -9,5 +9,4 @@ public class SystemInfo {
     public static String javafxVersion() {
         return System.getProperty("javafx.version");
     }
-
 }
