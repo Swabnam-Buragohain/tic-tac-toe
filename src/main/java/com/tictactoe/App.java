@@ -57,21 +57,20 @@ public class App extends Application {
     // Pre-allocated winning combinations (Zero-allocation checkWin optimization)
     private static final int[][][] WIN_COMBINATIONS = {
             // Rows
-            {{0, 0}, {0, 1}, {0, 2}},
-            {{1, 0}, {1, 1}, {1, 2}},
-            {{2, 0}, {2, 1}, {2, 2}},
+            { { 0, 0 }, { 0, 1 }, { 0, 2 } },
+            { { 1, 0 }, { 1, 1 }, { 1, 2 } },
+            { { 2, 0 }, { 2, 1 }, { 2, 2 } },
             // Columns
-            {{0, 0}, {1, 0}, {2, 0}},
-            {{0, 1}, {1, 1}, {2, 1}},
-            {{0, 2}, {1, 2}, {2, 2}},
+            { { 0, 0 }, { 1, 0 }, { 2, 0 } },
+            { { 0, 1 }, { 1, 1 }, { 2, 1 } },
+            { { 0, 2 }, { 1, 2 }, { 2, 2 } },
             // Diagonals
-            {{0, 0}, {1, 1}, {2, 2}},
-            {{0, 2}, {1, 1}, {2, 0}}
+            { { 0, 0 }, { 1, 1 }, { 2, 2 } },
+            { { 0, 2 }, { 1, 1 }, { 2, 0 } }
     };
 
     // 3D Tile Button Styling (extruded beveled obsidian block)
-    private static final String TILE_IDLE_STYLE =
-            "-fx-background-color: " +
+    private static final String TILE_IDLE_STYLE = "-fx-background-color: " +
             "    #050811, " +
             "    linear-gradient(to bottom, #1e293b, #090e1a), " +
             "    linear-gradient(to bottom, #111827 0%, #0d1322 100%); " +
@@ -88,8 +87,7 @@ public class App extends Application {
             "-fx-font-weight: 900; " +
             "-fx-text-fill: #ffffff;";
 
-    private static final String TILE_HOVER_STYLE =
-            "-fx-background-color: " +
+    private static final String TILE_HOVER_STYLE = "-fx-background-color: " +
             "    #050811, " +
             "    linear-gradient(to bottom, #0284c7, #0369a1), " +
             "    linear-gradient(to bottom, #1e293b 0%, #0f172a 100%); " +
@@ -106,8 +104,7 @@ public class App extends Application {
             "-fx-font-weight: 900; " +
             "-fx-text-fill: #ffffff;";
 
-    private static final String TILE_X_STYLE =
-            "-fx-background-color: " +
+    private static final String TILE_X_STYLE = "-fx-background-color: " +
             "    #050811, " +
             "    linear-gradient(to bottom, #991b1b, #450a0a), " +
             "    linear-gradient(to bottom, #1e1115 0%, #130a0d 100%); " +
@@ -123,8 +120,7 @@ public class App extends Application {
             "-fx-font-weight: 900; " +
             "-fx-text-fill: #ff2a55;";
 
-    private static final String TILE_O_STYLE =
-            "-fx-background-color: " +
+    private static final String TILE_O_STYLE = "-fx-background-color: " +
             "    #050811, " +
             "    linear-gradient(to bottom, #0369a1, #082f49), " +
             "    linear-gradient(to bottom, #0a1726 0%, #06101c 100%); " +
@@ -140,8 +136,7 @@ public class App extends Application {
             "-fx-font-weight: 900; " +
             "-fx-text-fill: #00f0ff;";
 
-    private static final String TILE_WIN_STYLE =
-            "-fx-background-color: " +
+    private static final String TILE_WIN_STYLE = "-fx-background-color: " +
             "    #022c22, " +
             "    linear-gradient(to bottom, #22c55e, #15803d), " +
             "    linear-gradient(to bottom, #166534 0%, #052e16 100%); " +
@@ -203,8 +198,7 @@ public class App extends Application {
                 0, 0, 0.5, 0.45, 0.85, true, CycleMethod.NO_CYCLE,
                 new Stop(0, Color.web("#0e172e")),
                 new Stop(0.5, Color.web("#060a14")),
-                new Stop(1, Color.web("#020409"))
-        );
+                new Stop(1, Color.web("#020409")));
         root.setBackground(new Background(new BackgroundFill(spaceGrad, CornerRadii.EMPTY, Insets.EMPTY)));
 
         // Main Layout
@@ -270,7 +264,8 @@ public class App extends Application {
         title.setEffect(new DropShadow(18, Color.web("#38bdf8")));
 
         Label subtitle = new Label("CYBERNETIC ARENA // HD FULLSCREEN");
-        subtitle.setStyle("-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #0284c7; -fx-letter-spacing: 1.5px;");
+        subtitle.setStyle(
+                "-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #0284c7; -fx-letter-spacing: 1.5px;");
         logoBox.getChildren().addAll(title, subtitle);
         headerBar.setLeft(logoBox);
 
@@ -279,7 +274,8 @@ public class App extends Application {
         centerControls.setAlignment(Pos.CENTER);
 
         HBox modeSwitcher = new HBox(4);
-        modeSwitcher.setStyle("-fx-background-color: rgba(15, 23, 42, 0.85); -fx-padding: 4px; -fx-background-radius: 24px; -fx-border-color: rgba(56, 189, 248, 0.35); -fx-border-radius: 24px;");
+        modeSwitcher.setStyle(
+                "-fx-background-color: rgba(15, 23, 42, 0.85); -fx-padding: 4px; -fx-background-radius: 24px; -fx-border-color: rgba(56, 189, 248, 0.35); -fx-border-radius: 24px;");
 
         pvpBtn = createPillButton("⚔️ 2 PLAYERS", currentMode == GameMode.PVP);
         cpuBtn = createPillButton("🤖 VS CPU", currentMode == GameMode.PV_CPU);
@@ -289,7 +285,8 @@ public class App extends Application {
         modeSwitcher.getChildren().addAll(pvpBtn, cpuBtn);
 
         diffBox = new HBox(4);
-        diffBox.setStyle("-fx-background-color: rgba(15, 23, 42, 0.85); -fx-padding: 4px; -fx-background-radius: 24px; -fx-border-color: rgba(56, 189, 248, 0.35); -fx-border-radius: 24px;");
+        diffBox.setStyle(
+                "-fx-background-color: rgba(15, 23, 42, 0.85); -fx-padding: 4px; -fx-background-radius: 24px; -fx-border-color: rgba(56, 189, 248, 0.35); -fx-border-radius: 24px;");
 
         easyBtn = createPillButton("EASY", currentDifficulty == CpuPlayer.Difficulty.EASY);
         medBtn = createPillButton("MEDIUM", currentDifficulty == CpuPlayer.Difficulty.MEDIUM);
@@ -331,16 +328,15 @@ public class App extends Application {
         statusBadge = new Label("YOUR TURN (X)");
         statusBadge.setStyle(
                 "-fx-background-color: rgba(15, 23, 42, 0.9); " +
-                "-fx-text-fill: #38bdf8; " +
-                "-fx-font-weight: 900; " +
-                "-fx-font-size: 15px; " +
-                "-fx-padding: 8 28; " +
-                "-fx-background-radius: 20px; " +
-                "-fx-border-color: rgba(56, 189, 248, 0.6); " +
-                "-fx-border-radius: 20px; " +
-                "-fx-border-width: 1.5px; " +
-                "-fx-letter-spacing: 1px;"
-        );
+                        "-fx-text-fill: #38bdf8; " +
+                        "-fx-font-weight: 900; " +
+                        "-fx-font-size: 15px; " +
+                        "-fx-padding: 8 28; " +
+                        "-fx-background-radius: 20px; " +
+                        "-fx-border-color: rgba(56, 189, 248, 0.6); " +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-border-width: 1.5px; " +
+                        "-fx-letter-spacing: 1px;");
         statusBadge.setEffect(new DropShadow(16, Color.web("#38bdf8")));
 
         topBox.getChildren().addAll(headerBar, statusBadge);
@@ -356,16 +352,15 @@ public class App extends Application {
         deck.setMaxSize(510, 510);
         deck.setStyle(
                 "-fx-background-color: " +
-                "    rgba(2, 6, 23, 0.9), " +
-                "    linear-gradient(to bottom, #0f172a, #030712), " +
-                "    linear-gradient(to bottom, #090d16, #050811); " +
-                "-fx-background-insets: 0, 4, 12; " +
-                "-fx-background-radius: 28px; " +
-                "-fx-border-color: rgba(56, 189, 248, 0.45); " +
-                "-fx-border-width: 2px; " +
-                "-fx-border-radius: 28px; " +
-                "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 36, 0.5, 0, 16);"
-        );
+                        "    rgba(2, 6, 23, 0.9), " +
+                        "    linear-gradient(to bottom, #0f172a, #030712), " +
+                        "    linear-gradient(to bottom, #090d16, #050811); " +
+                        "-fx-background-insets: 0, 4, 12; " +
+                        "-fx-background-radius: 28px; " +
+                        "-fx-border-color: rgba(56, 189, 248, 0.45); " +
+                        "-fx-border-width: 2px; " +
+                        "-fx-border-radius: 28px; " +
+                        "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 36, 0.5, 0, 16);");
 
         // 3x3 Grid of 3D Extruded Tiles
         GridPane grid = new GridPane();
@@ -426,8 +421,8 @@ public class App extends Application {
         // Subtle ambient floating breathing animation on the deck
         Timeline breath = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(deck.translateYProperty(), -3, Interpolator.EASE_BOTH)),
-                new KeyFrame(Duration.seconds(3.0), new KeyValue(deck.translateYProperty(), 3, Interpolator.EASE_BOTH))
-        );
+                new KeyFrame(Duration.seconds(3.0),
+                        new KeyValue(deck.translateYProperty(), 3, Interpolator.EASE_BOTH)));
         breath.setAutoReverse(true);
         breath.setCycleCount(Animation.INDEFINITE);
         breath.play();
@@ -440,17 +435,17 @@ public class App extends Application {
         card.setPrefWidth(170);
         card.setStyle(
                 "-fx-background-color: rgba(15, 23, 42, 0.75); " +
-                "-fx-padding: 18 16; " +
-                "-fx-background-radius: 16px; " +
-                "-fx-border-color: " + hexColor + "55; " +
-                "-fx-border-radius: 16px; " +
-                "-fx-border-width: 1.5px;"
-        );
+                        "-fx-padding: 18 16; " +
+                        "-fx-background-radius: 16px; " +
+                        "-fx-border-color: " + hexColor + "55; " +
+                        "-fx-border-radius: 16px; " +
+                        "-fx-border-width: 1.5px;");
         card.setEffect(new DropShadow(14, Color.web(hexColor + "33")));
 
         Label nameLbl = new Label(name);
         nameLbl.setId("nameLabel");
-        nameLbl.setStyle("-fx-font-size: 14px; -fx-font-weight: 900; -fx-text-fill: " + hexColor + "; -fx-letter-spacing: 1px;");
+        nameLbl.setStyle(
+                "-fx-font-size: 14px; -fx-font-weight: 900; -fx-text-fill: " + hexColor + "; -fx-letter-spacing: 1px;");
 
         Label subLbl = new Label(sub);
         subLbl.setStyle("-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #64748b;");
@@ -473,13 +468,12 @@ public class App extends Application {
         Button newMatchBtn = new Button("⚡ NEW MATCH");
         newMatchBtn.setStyle(
                 "-fx-background-color: linear-gradient(to right, #0284c7, #06b6d4); " +
-                "-fx-text-fill: #ffffff; " +
-                "-fx-font-size: 13px; " +
-                "-fx-font-weight: 900; " +
-                "-fx-padding: 10 26; " +
-                "-fx-background-radius: 20px; " +
-                "-fx-cursor: hand;"
-        );
+                        "-fx-text-fill: #ffffff; " +
+                        "-fx-font-size: 13px; " +
+                        "-fx-font-weight: 900; " +
+                        "-fx-padding: 10 26; " +
+                        "-fx-background-radius: 20px; " +
+                        "-fx-cursor: hand;");
         newMatchBtn.setEffect(new DropShadow(14, Color.web("#06b6d4")));
         newMatchBtn.setOnAction(e -> {
             SoundEngine.playReset();
@@ -501,7 +495,8 @@ public class App extends Application {
         actionButtons.getChildren().addAll(newMatchBtn, resetScoresBtn, scoreLabelDraw);
 
         Label hintText = new Label("⚡ CYBERNETIC ENGINE ACTIVE   •   PRESS ESC TO TOGGLE FULLSCREEN");
-        hintText.setStyle("-fx-font-size: 10.5px; -fx-font-weight: bold; -fx-text-fill: #64748b; -fx-letter-spacing: 1px;");
+        hintText.setStyle(
+                "-fx-font-size: 10.5px; -fx-font-weight: bold; -fx-text-fill: #64748b; -fx-letter-spacing: 1px;");
 
         bottomBox.getChildren().addAll(actionButtons, hintText);
         return bottomBox;
@@ -519,16 +514,16 @@ public class App extends Application {
         card.setMaxHeight(270);
         card.setStyle(
                 "-fx-background-color: rgba(15, 23, 42, 0.96); " +
-                "-fx-padding: 28 32; " +
-                "-fx-background-radius: 22px; " +
-                "-fx-border-color: #38bdf8; " +
-                "-fx-border-width: 2px; " +
-                "-fx-border-radius: 22px;"
-        );
+                        "-fx-padding: 28 32; " +
+                        "-fx-background-radius: 22px; " +
+                        "-fx-border-color: #38bdf8; " +
+                        "-fx-border-width: 2px; " +
+                        "-fx-border-radius: 22px;");
         card.setEffect(new DropShadow(34, Color.web("#0284c7")));
 
         modalTitle = new Label("VICTORY ACHIEVED");
-        modalTitle.setStyle("-fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: #ffffff; -fx-letter-spacing: 2px;");
+        modalTitle.setStyle(
+                "-fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: #ffffff; -fx-letter-spacing: 2px;");
 
         modalSubtitle = new Label("Player X has conquered the arena!");
         modalSubtitle.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #94a3b8;");
@@ -540,13 +535,12 @@ public class App extends Application {
         Button playAgainBtn = new Button("🔄 PLAY AGAIN");
         playAgainBtn.setStyle(
                 "-fx-background-color: linear-gradient(to right, #0284c7, #06b6d4); " +
-                "-fx-text-fill: white; " +
-                "-fx-font-size: 12px; " +
-                "-fx-font-weight: 900; " +
-                "-fx-padding: 10 22; " +
-                "-fx-background-radius: 18px; " +
-                "-fx-cursor: hand;"
-        );
+                        "-fx-text-fill: white; " +
+                        "-fx-font-size: 12px; " +
+                        "-fx-font-weight: 900; " +
+                        "-fx-padding: 10 22; " +
+                        "-fx-background-radius: 18px; " +
+                        "-fx-cursor: hand;");
         playAgainBtn.setOnAction(e -> {
             hideModal();
             SoundEngine.playReset();
@@ -586,24 +580,22 @@ public class App extends Application {
         if (active) {
             btn.setStyle(
                     "-fx-background-color: #0284c7; " +
-                    "-fx-text-fill: #ffffff; " +
-                    "-fx-font-size: 11px; " +
-                    "-fx-font-weight: 900; " +
-                    "-fx-padding: 6 14; " +
-                    "-fx-background-radius: 18px; " +
-                    "-fx-cursor: hand;"
-            );
+                            "-fx-text-fill: #ffffff; " +
+                            "-fx-font-size: 11px; " +
+                            "-fx-font-weight: 900; " +
+                            "-fx-padding: 6 14; " +
+                            "-fx-background-radius: 18px; " +
+                            "-fx-cursor: hand;");
             btn.setEffect(new DropShadow(10, Color.web("#38bdf8")));
         } else {
             btn.setStyle(
                     "-fx-background-color: transparent; " +
-                    "-fx-text-fill: #94a3b8; " +
-                    "-fx-font-size: 11px; " +
-                    "-fx-font-weight: 800; " +
-                    "-fx-padding: 6 14; " +
-                    "-fx-background-radius: 18px; " +
-                    "-fx-cursor: hand;"
-            );
+                            "-fx-text-fill: #94a3b8; " +
+                            "-fx-font-size: 11px; " +
+                            "-fx-font-weight: 800; " +
+                            "-fx-padding: 6 14; " +
+                            "-fx-background-radius: 18px; " +
+                            "-fx-cursor: hand;");
             btn.setEffect(null);
         }
     }
@@ -612,42 +604,40 @@ public class App extends Application {
         Button btn = new Button(text);
         btn.setStyle(
                 "-fx-background-color: rgba(15, 23, 42, 0.85); " +
-                "-fx-text-fill: #cbd5e1; " +
-                "-fx-font-size: 11px; " +
-                "-fx-font-weight: 800; " +
-                "-fx-padding: 8 16; " +
-                "-fx-background-radius: 20px; " +
-                "-fx-border-color: rgba(56, 189, 248, 0.3); " +
-                "-fx-border-radius: 20px; " +
-                "-fx-cursor: hand;"
-        );
+                        "-fx-text-fill: #cbd5e1; " +
+                        "-fx-font-size: 11px; " +
+                        "-fx-font-weight: 800; " +
+                        "-fx-padding: 8 16; " +
+                        "-fx-background-radius: 20px; " +
+                        "-fx-border-color: rgba(56, 189, 248, 0.3); " +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-cursor: hand;");
         btn.setOnMouseEntered(e -> btn.setStyle(
                 "-fx-background-color: rgba(30, 41, 59, 0.95); " +
-                "-fx-text-fill: #38bdf8; " +
-                "-fx-font-size: 11px; " +
-                "-fx-font-weight: 800; " +
-                "-fx-padding: 8 16; " +
-                "-fx-background-radius: 20px; " +
-                "-fx-border-color: #38bdf8; " +
-                "-fx-border-radius: 20px; " +
-                "-fx-cursor: hand;"
-        ));
+                        "-fx-text-fill: #38bdf8; " +
+                        "-fx-font-size: 11px; " +
+                        "-fx-font-weight: 800; " +
+                        "-fx-padding: 8 16; " +
+                        "-fx-background-radius: 20px; " +
+                        "-fx-border-color: #38bdf8; " +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-cursor: hand;"));
         btn.setOnMouseExited(e -> btn.setStyle(
                 "-fx-background-color: rgba(15, 23, 42, 0.85); " +
-                "-fx-text-fill: #cbd5e1; " +
-                "-fx-font-size: 11px; " +
-                "-fx-font-weight: 800; " +
-                "-fx-padding: 8 16; " +
-                "-fx-background-radius: 20px; " +
-                "-fx-border-color: rgba(56, 189, 248, 0.3); " +
-                "-fx-border-radius: 20px; " +
-                "-fx-cursor: hand;"
-        ));
+                        "-fx-text-fill: #cbd5e1; " +
+                        "-fx-font-size: 11px; " +
+                        "-fx-font-weight: 800; " +
+                        "-fx-padding: 8 16; " +
+                        "-fx-background-radius: 20px; " +
+                        "-fx-border-color: rgba(56, 189, 248, 0.3); " +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-cursor: hand;"));
         return btn;
     }
 
     private void setMode(GameMode mode) {
-        if (this.currentMode == mode) return;
+        if (this.currentMode == mode)
+            return;
         this.currentMode = mode;
         updatePillButtonStyle(pvpBtn, mode == GameMode.PVP);
         updatePillButtonStyle(cpuBtn, mode == GameMode.PV_CPU);
@@ -668,7 +658,8 @@ public class App extends Application {
     }
 
     private void setDifficulty(CpuPlayer.Difficulty diff) {
-        if (this.currentDifficulty == diff) return;
+        if (this.currentDifficulty == diff)
+            return;
         this.currentDifficulty = diff;
         updatePillButtonStyle(easyBtn, diff == CpuPlayer.Difficulty.EASY);
         updatePillButtonStyle(medBtn, diff == CpuPlayer.Difficulty.MEDIUM);
@@ -709,18 +700,18 @@ public class App extends Application {
         board[row][col] = player;
         Button btn = buttons[row][col];
 
-        // Create glowing high-contrast mark as graphic node (immune to button CSS overrides)
+        // Create glowing high-contrast mark as graphic node (immune to button CSS
+        // overrides)
         Label mark = new Label(String.valueOf(player));
         String textFill = (player == 'X') ? "#ff2a55" : "#00f0ff";
         String glowColor = (player == 'X') ? "#ef4444" : "#00e5ff";
 
         mark.setStyle(
                 "-fx-font-size: 66px; " +
-                "-fx-font-weight: 900; " +
-                "-fx-font-family: 'Segoe UI', 'DejaVu Sans', sans-serif; " +
-                "-fx-text-fill: " + textFill + "; " +
-                "-fx-alignment: center;"
-        );
+                        "-fx-font-weight: 900; " +
+                        "-fx-font-family: 'Segoe UI', 'DejaVu Sans', sans-serif; " +
+                        "-fx-text-fill: " + textFill + "; " +
+                        "-fx-alignment: center;");
         mark.setEffect(new DropShadow(26, Color.web(glowColor)));
 
         btn.setGraphic(mark);
@@ -751,7 +742,8 @@ public class App extends Application {
     }
 
     private void triggerCpuTurn() {
-        if (gameOver) return;
+        if (gameOver)
+            return;
         cpuThinking = true;
         statusBadge.setText("CPU IS COMPUTING... ⚡");
         statusBadge.setEffect(new DropShadow(18, Color.web("#00e5ff")));
@@ -793,7 +785,8 @@ public class App extends Application {
             SoundEngine.playWin();
 
             PauseTransition delay = new PauseTransition(Duration.millis(600));
-            delay.setOnFinished(e -> showModal("PLAYER X VICTORIOUS!", "Crimson protocol achieved complete domination.", Color.web("#ef4444")));
+            delay.setOnFinished(e -> showModal("PLAYER X VICTORIOUS!", "Crimson protocol achieved complete domination.",
+                    Color.web("#ef4444")));
             delay.play();
         } else if (winner == 'O') {
             scoreO++;
@@ -804,7 +797,8 @@ public class App extends Application {
             SoundEngine.playWin();
 
             PauseTransition delay = new PauseTransition(Duration.millis(600));
-            delay.setOnFinished(e -> showModal(name + " WINS!", "Cyan protocol conquered the board matrix.", Color.web("#00e5ff")));
+            delay.setOnFinished(
+                    e -> showModal(name + " WINS!", "Cyan protocol conquered the board matrix.", Color.web("#00e5ff")));
             delay.play();
         } else {
             scoreDraw++;
@@ -813,7 +807,8 @@ public class App extends Application {
             SoundEngine.playDraw();
 
             PauseTransition delay = new PauseTransition(Duration.millis(600));
-            delay.setOnFinished(e -> showModal("HONORABLE DRAW", "Both strategic protocols countered each other perfectly.", Color.web("#f59e0b")));
+            delay.setOnFinished(e -> showModal("HONORABLE DRAW",
+                    "Both strategic protocols countered each other perfectly.", Color.web("#f59e0b")));
             delay.play();
         }
 
@@ -821,7 +816,8 @@ public class App extends Application {
     }
 
     private void highlightWinningLine(int[][] line) {
-        if (line == null) return;
+        if (line == null)
+            return;
         for (int[] pos : line) {
             Button btn = buttons[pos[0]][pos[1]];
             btn.setStyle(TILE_WIN_STYLE);
@@ -843,8 +839,8 @@ public class App extends Application {
     private int[][] checkWin(char p) {
         for (int[][] line : WIN_COMBINATIONS) {
             if (board[line[0][0]][line[0][1]] == p &&
-                board[line[1][0]][line[1][1]] == p &&
-                board[line[2][0]][line[2][1]] == p) {
+                    board[line[1][0]][line[1][1]] == p &&
+                    board[line[2][0]][line[2][1]] == p) {
                 return line;
             }
         }
@@ -854,7 +850,8 @@ public class App extends Application {
     private boolean isBoardFull() {
         for (int r = 0; r < 3; r++) {
             for (int c = 0; c < 3; c++) {
-                if (board[r][c] == ' ') return false;
+                if (board[r][c] == ' ')
+                    return false;
             }
         }
         return true;
@@ -919,22 +916,20 @@ public class App extends Application {
         if (active) {
             card.setStyle(
                     "-fx-background-color: rgba(15, 23, 42, 0.9); " +
-                    "-fx-padding: 18 16; " +
-                    "-fx-background-radius: 16px; " +
-                    "-fx-border-color: " + hexColor + "; " +
-                    "-fx-border-radius: 16px; " +
-                    "-fx-border-width: 2px;"
-            );
+                            "-fx-padding: 18 16; " +
+                            "-fx-background-radius: 16px; " +
+                            "-fx-border-color: " + hexColor + "; " +
+                            "-fx-border-radius: 16px; " +
+                            "-fx-border-width: 2px;");
             card.setEffect(new DropShadow(22, Color.web(hexColor)));
         } else {
             card.setStyle(
                     "-fx-background-color: rgba(15, 23, 42, 0.65); " +
-                    "-fx-padding: 18 16; " +
-                    "-fx-background-radius: 16px; " +
-                    "-fx-border-color: " + hexColor + "44; " +
-                    "-fx-border-radius: 16px; " +
-                    "-fx-border-width: 1.5px;"
-            );
+                            "-fx-padding: 18 16; " +
+                            "-fx-background-radius: 16px; " +
+                            "-fx-border-color: " + hexColor + "44; " +
+                            "-fx-border-radius: 16px; " +
+                            "-fx-border-width: 1.5px;");
             card.setEffect(new DropShadow(8, Color.web(hexColor + "22")));
         }
     }
